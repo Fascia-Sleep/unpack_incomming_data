@@ -1,4 +1,52 @@
+# Fascia Real-Time Data Visualization Task
+
+## Project Background
+You are provided with a working React project that handles MQTT connection and data parsing from Fascia devices. The project currently displays the raw data in a text format. Your task is to create visualizations of this data using D3.js.
+![k6NqMPBYPJ.png](src/img/k6NqMPBYPJ.png)
+## Provided Code
+- `BasicMQTTConnect.js`: Handles MQTT connection, data streaming, and parsing
+- `BasicMQTTConnect.css`: Styling for the connection component
+
+## Your Task
+Create a new React component `SignalVisualizer` that:
+
+1. Takes the parsed data from BasicMQTTConnect and visualizes it using D3.js
+2. Shows a 30-second sliding window of the following signals:
+   - EEG channels (Pz, Cz, Fp1, Fp2)
+   - EMG channels (EMG1, EMG2)
+   - EOG channels (EOG1, EOG2)
+
+### Core Requirements
+- Implement real-time plotting using D3.js
+- Display a 30-second sliding window (7,500 samples at 250Hz)
+- Use appropriate Y-axis scales:
+  * EEG: ±100 μV
+  * EMG: ±500 μV
+  * EOG: ±500 μV
+- Show time on X-axis in seconds
+- Include proper axes labels and units
+
+### Technical Details
+- Sampling rate: 250 Hz
+- Data format from BasicMQTTConnect:
+  ```javascript
+  {
+    ads_1: value,  // Pz (in μV)
+    ads_2: value,  // Cz (in μV)
+    ads_3: value,  // Fp1 (in μV)
+    ads_4: value,  // Fp2 (in μV)
+    ads_5: value,  // EMG1 (in μV)
+    ads_6: value,  // EMG2 (in μV)
+    ads_7: value,  // EOG1 (in μV)
+    ads_8: value,  // EOG2 (in μV)
+    // ... other signals
+  }
+
+
 # Getting Started with Create React App
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
